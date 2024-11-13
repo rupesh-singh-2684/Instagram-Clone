@@ -7,18 +7,12 @@ import Post from '../../components/post'
 import Feed from '../../components/feed'
 import styles from './styles'
 
-
-
-
-
-
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-        <Header/>
-        {/* <Stories/> */}
-        <Feed/>
-   </View>
+      <Header />
+      <Feed />
+    </View>
   )
 }
 

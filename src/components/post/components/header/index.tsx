@@ -8,7 +8,7 @@ const Header = ({ imageUri, name }:any) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.profileContainer}>
-        <ProfilePicture uri={imageUri} size={40} />
+        <ProfilePicture uri={imageUri} size={35} />
         <Text style={styles.userName}>{name}</Text>
       </TouchableOpacity>
 

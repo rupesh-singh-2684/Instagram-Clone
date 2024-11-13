@@ -8,8 +8,9 @@ const Feed = () => {
     return (
         <FlatList
             data={post}
-            renderItem={({item}) => <Post post={item} />}
-            contentContainerStyle= {{paddingBottom:120}}
+            keyExtractor={({ id }: any) => id}
+            renderItem={({ item }) => <Post post={item} />}
+            contentContainerStyle={{ paddingBottom: 120 }}
             ListHeaderComponent={Stories}
             showsVerticalScrollIndicator={false}
         />

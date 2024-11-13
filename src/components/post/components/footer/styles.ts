@@ -18,10 +18,13 @@ const styles = StyleSheet.create({
     likes:{
         fontWeight:"bold",
         fontSize:14,
-        margin:10
+        marginLeft:-5,
+        alignSelf:'center',
+
+
     },
     captions:{
-        marginHorizontal:10
+        margin:10
     },
     time:{
         margin:10,

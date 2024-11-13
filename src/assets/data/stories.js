@@ -7,14 +7,14 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.insider.com/5d03aa8e6fc9201bc7002b43?width=1136&format=jpeg',
+        imageUri: 'https://images.pexels.com/photos/1812527/pexels-photo-1812527.jpeg?auto=compress&cs=tinysrgb&w=1200',
         postedTime: '25 m',
       }, {
         imageUri: 'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-        postedTime: '25 m',
+        postedTime: '21 m',
       }, {
-        imageUri: 'https://lh3.googleusercontent.com/proxy/cTB66Af39yCQmn0Z5Dy9YGYG8NCTmtLVB4QzOYNMs6ejl3SpWcGK6rEsIKCDpeeetC8b5jE5iyDk-suYMRDJe5zvmfjYAmuzDG5JcKnQQ59pI9caMwYrg5aTjqoEgVzaBNH7BvUkGk8TXsqSYTutYCkuBYp6osmM',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/3585033/pexels-photo-3585033.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '19m',
       }
     ]
   }, {
@@ -25,14 +25,14 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/2219871/pexels-photo-2219871.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '32 m',
       }, {
-        imageUri: 'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/3585088/pexels-photo-3585088.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '12 m',
       }, {
-        imageUri: 'https://lh3.googleusercontent.com/proxy/cTB66Af39yCQmn0Z5Dy9YGYG8NCTmtLVB4QzOYNMs6ejl3SpWcGK6rEsIKCDpeeetC8b5jE5iyDk-suYMRDJe5zvmfjYAmuzDG5JcKnQQ59pI9caMwYrg5aTjqoEgVzaBNH7BvUkGk8TXsqSYTutYCkuBYp6osmM',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/3585031/pexels-photo-3585031.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '9 m',
       }
     ]
   }, {
@@ -43,8 +43,8 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/4622207/pexels-photo-4622207.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '1 h',
       },
     ]
   }, {
@@ -55,8 +55,8 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/2812267/pexels-photo-2812267.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '20 m',
       },
     ]
   }, {
@@ -67,8 +67,8 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/1808182/pexels-photo-1808182.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '21 m',
       },
     ]
   }, {
@@ -79,8 +79,8 @@ export default [
     },
     stories: [
       {
-        imageUri: 'https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg',
-        postedTime: '25 m',
+        imageUri: 'https://images.pexels.com/photos/2079670/pexels-photo-2079670.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        postedTime: '1 m',
       },
     ]
   },

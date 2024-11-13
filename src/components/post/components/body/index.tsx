@@ -1,11 +1,30 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import styles from './styles'
+import Video from 'react-native-video'
 
-const Body = ({imageUri}:any) => {
+const Body = ({ imageUri, videoUri }: any) => {
+
+  const onPress = () => {
+    console.log('img pressed');
+  }
+
   return (
-    <Image source={{uri:imageUri}} 
-    style={styles.image}/>
+    <>
+      <TouchableWithoutFeedback onPress={onPress}>
+        {/* <Video source={{ uri: videoUri }}
+      style={styles.image}
+      /> */}
+        <Image source={{ uri: imageUri }}
+          style={styles.image} />
+      </TouchableWithoutFeedback>
+
+      {/* <TouchableWithoutFeedback onPress={onPress}>
+        <Video source={{ uri: videoUri }}
+          style={styles.image}
+        />
+      </TouchableWithoutFeedback> */}
+    </>
   )
 }
 

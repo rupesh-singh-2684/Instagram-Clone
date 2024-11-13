@@ -14,6 +14,11 @@ const styles = StyleSheet.create ({
         width:25,
         marginHorizontal:15
     },
+    messangerIcon:{
+        height:25,
+        width:25,
+        marginRight:15
+    },
     iconsDiv:{
         flexDirection:'row',
         alignItems:'center',

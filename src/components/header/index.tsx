@@ -21,7 +21,7 @@ const Header = () => {
         </TouchableOpacity>
         <TouchableOpacity>
           <Image source={Icons.homeMessenger}
-            style={styles.headerIcons} />
+            style={styles.messangerIcon} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
