@@ -18,6 +18,7 @@ const styles = StyleSheet.create ({
       },
     container1:{
         flexDirection:'row',
+        alignItems:'center'
     },
     imageStyleView:{
         justifyContent:'center',
@@ -30,6 +31,8 @@ const styles = StyleSheet.create ({
     iconImageSize:{
         height:30,
         width:30,
+        borderRadius:15,
+        marginHorizontal:10
         // backgroundColor:'red',
     },
     textArrange:{
@@ -53,6 +56,11 @@ const styles = StyleSheet.create ({
         fontSize:14,
         fontWeight:'400',
         color:'black',
+    },
+    time:{
+        fontSize:16,
+        fontWeight:'500',
+        color:'#DCDCDC',
     }
 })
 

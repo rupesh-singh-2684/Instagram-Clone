@@ -1,8 +1,9 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
-import Post from '../post'
+
 import Stories from '../stories'
 import post from '../../assets/data/post'
+import Post from '../post'
 
 const Feed = () => {
     return (

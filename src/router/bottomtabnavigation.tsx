@@ -8,6 +8,7 @@ import NewPost from '../screens/post';
 import Reels from '../screens/reels';
 import Profile from '../screens/profile';
 import HomeRoutes from './home.routes';
+import ProfileRoutes from './profile.routes';
 
 
 const Tab = createBottomTabNavigator()
@@ -96,7 +97,7 @@ const Bottomtab = () => {
 
             <Tab.Screen
                 name="Profile"
-                component={Profile}
+                component={ProfileRoutes}
                 options={{ headerShown: false }}
             />
 

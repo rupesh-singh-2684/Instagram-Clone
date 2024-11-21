@@ -36,7 +36,7 @@ const Images = {
     profileImage:require(`${pathToImages}/profile.jpg`),
     // profileImage1:require(`${pathToImages}/profile1.webp`),
     profileImage2:require(`${pathToImages}/profile1.jpeg`),
-    // profileImage3:require(`${pathToImages}/profile3.webp`),
+    profileImage3:'/Users/admin/Desktop/InstagramClone/src/assets/images/profile1.jpeg',
     profileImage4:require(`${pathToImages}/profile3.jpeg`),
 
 }

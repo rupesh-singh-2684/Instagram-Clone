@@ -32,9 +32,10 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
   const renderItem = ({ item, index, }: any) => (
     <MoreOptionScreen
     index={index}
-    icon={item.comments.user.imagePro}
+    icon={item.comments.user.icon}
     name={item.comments.user.name}
     comments={item.comments.user.comments}
+    time={item.comments.user.time}
     onPress={item.onPress}
     />
     );

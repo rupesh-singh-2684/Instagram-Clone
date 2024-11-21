@@ -2,18 +2,21 @@ import { View, Text, SafeAreaView, Image, TouchableOpacity, FlatList, Dimensions
 import React, { useState } from 'react'
 import styles from './styles'
 import { Icons, Images } from '../../assets'
-import post from '../../assets/data/post'
+import post from '../../assets/data/post1'
 import Post from '../../components/post'
 import Stories from '../../components/stories'
-import stories from '../../assets/data/stories'
-import profilePost from '../../assets/data/profilePost'
+import stories from '../../assets/data/stories1'
+import profilePost from '../../assets/data/profilePost1'
+import { useRoute } from '@react-navigation/native'
 
-const Profile = () => {
+const Profile = ({route,navigation}:any) => {
   const [isActiveIndex, setIsActiveIndex] = useState(0)
 
   const onPressed = (index) => {
     setIsActiveIndex(index)
   }
+
+  const {name,bio,userName,imageUri} = route.params as {name:any,userName:any,bio:any,imageUri:any,} || {imageUri:Images.profileImage3}
 
   const images = [
     require('/Users/admin/Desktop/InstagramClone/src/assets/images/profile.jpg'),
@@ -68,13 +71,16 @@ const Profile = () => {
     }
   }
 
+  const handleEdit = ()=>{
+    navigation.navigate('EditProfile')
+  }
   return (
     
     <SafeAreaView>
       <ScrollView>
       <View style={styles.container}>
         <View>
-          <Text style={styles.userName}>rupesh_singh_baghel</Text>
+          <Text style={styles.userName}>{userName || 'Rupesh_Singh'}</Text>
         </View>
         <View style={styles.imgContainer}>
           <Image source={Icons.threads} style={styles.headerImg} />
@@ -84,7 +90,7 @@ const Profile = () => {
       </View>
       <View style={styles.detailsContainer}>
         <View>
-          <Image source={Images.profileImage} style={styles.userProfile} />
+          <Image source={{uri:imageUri}} style={styles.userProfile} />
         </View>
         <View style={styles.countContainer}>
           <View style={styles.postDetails}>
@@ -103,14 +109,12 @@ const Profile = () => {
       </View>
 
       <View style={styles.userProfileName}>
-        <Text style={styles.title1}> Rupesh Singh Baghel </Text>
-        <Text style={styles.bio}>🕉️ Sanatani 🕉️</Text>
-        <Text style={styles.bio}>📍 Noida </Text>
-        <Text style={styles.bio}>🙏 Jai Shree Ram 🙏</Text>
+        <Text style={styles.title1}> {name || 'Rupesh_Singh'} </Text>
+        <Text style={styles.bio}> {bio || 'Jai Shree Ram'} </Text>
       </View>
 
       <View style={styles.optionContainer}>
-        <TouchableOpacity style={styles.editButton}>
+        <TouchableOpacity style={styles.editButton} onPress={handleEdit}>
           <Text style={styles.title1}>
             Edit profile
           </Text>
@@ -154,6 +158,7 @@ const Profile = () => {
       </View>
           {renderPost()}
         </ScrollView>
+        
     </SafeAreaView>
   )
 }

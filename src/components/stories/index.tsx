@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, FlatList } from 'react-native'
 import React from 'react'
 import Story from '../story'
-import data from '../../assets/data/stories'
+import data from '../../assets/data/stories1'
 import styles from './styles'
 
 
