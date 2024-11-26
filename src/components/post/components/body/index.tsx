@@ -3,11 +3,11 @@ import React from 'react'
 import styles from './styles'
 import Video from 'react-native-video'
 
-const Body = ({ imageUri, videoUri }: any) => {
+const Body = ({ imageUri, videoUri,onPress }: any) => {
 
-  const onPress = () => {
-    console.log('img pressed');
-  }
+  // const onPress = () => {
+  //   console.log('img pressed');
+  // }
 
   return (
     <>

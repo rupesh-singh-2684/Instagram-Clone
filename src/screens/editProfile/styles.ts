@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
          width:27,
      },
      iconImageSize:{
-         height:30,
-         width:30,
+         height:35,
+         width:35,
          borderRadius:15,
          marginHorizontal:10
          // backgroundColor:'red',

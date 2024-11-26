@@ -12,7 +12,13 @@ const HomeRoutes = () => {
             <HomeStack.Screen
                 name='HomeScreen'
                 component={HomeScreen}
-                options={{ headerShown: false }} />
+                options={{ headerShown: false }} 
+            />
+             {/* <HomeStack.Screen
+                name='StoryScreen'
+                component={StoryScreen}
+                options={{ headerShown: false }} 
+            /> */}
         </HomeStack.Navigator>
     )
 }

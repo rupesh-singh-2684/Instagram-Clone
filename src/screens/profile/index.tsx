@@ -74,6 +74,9 @@ const Profile = ({route,navigation}:any) => {
   const handleEdit = ()=>{
     navigation.navigate('EditProfile')
   }
+  const handleSectionList = () =>{
+    navigation.navigate('SectionList')
+  }
   return (
     
     <SafeAreaView>
@@ -85,7 +88,9 @@ const Profile = ({route,navigation}:any) => {
         <View style={styles.imgContainer}>
           <Image source={Icons.threads} style={styles.headerImg} />
           <Image source={Icons.post} style={styles.headerImg} />
+          <TouchableOpacity onPress={handleSectionList}>
           <Image source={Icons.horizontalLine} style={styles.headerImg1} />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.detailsContainer}>
@@ -98,7 +103,7 @@ const Profile = ({route,navigation}:any) => {
             <Text style={styles.title2}>posts</Text>
           </View>
           <View style={styles.postDetails}>
-            <Text style={styles.title1}>398</Text>
+            <Text style={styles.title1}>401</Text>
             <Text style={styles.title2}>followers</Text>
           </View>
           <View style={styles.postDetails}>
@@ -158,7 +163,7 @@ const Profile = ({route,navigation}:any) => {
       </View>
           {renderPost()}
         </ScrollView>
-        
+
     </SafeAreaView>
   )
 }

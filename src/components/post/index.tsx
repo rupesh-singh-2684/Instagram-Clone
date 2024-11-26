@@ -8,7 +8,7 @@ const Post = ({ post }: any) => {
   return (
     <View>
       <Header imageUri={post.user.imageUri} name={post.user.name} />
-      <Body imageUri={post.imageUri} />
+      <Body imageUri={post.imageUri}/>
       <Footer likeCounts={post.likeCounts} captions={post.captions} postedAt={post.postedAt} imageUri={post.comments.user.imagePro} name={post.comments.user.name} comments={post.comments.user.comments}/>
     </View>
   )

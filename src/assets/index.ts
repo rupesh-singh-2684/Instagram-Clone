@@ -29,6 +29,11 @@ const Icons = {
     tagPost:require(`${pathToIcons}/tagPost.png`),
     pressedTagPost:require(`${pathToIcons}/pressedTagPost.png`),
     reelProfile:require(`${pathToIcons}/reelProfile.png`),
+    facebookLogo:require(`${pathToIcons}/facebook.png`),
+    camera:require(`${pathToIcons}/camera.png`),
+    trash:require(`${pathToIcons}/trash.png`),
+    images:require(`${pathToIcons}/images.png`),
+
 
 }
 

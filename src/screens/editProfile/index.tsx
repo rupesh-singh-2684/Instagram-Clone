@@ -1,16 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {
-    View,
-    Text,
-    TextInput,
-    StyleSheet,
-    Image,
-    TouchableOpacity,
-    ScrollView,
-    SafeAreaView,
-    Dimensions,
-    FlatList,
-} from 'react-native';
+import {View,Text,TextInput,StyleSheet,Image,TouchableOpacity,ScrollView,SafeAreaView,Dimensions,FlatList,} from 'react-native';
 import styles from './styles';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import RBSheet from 'react-native-raw-bottom-sheet';
@@ -83,10 +72,10 @@ const EditProfile = ({ navigation }: any) => {
 
                 <View style={styles.inputGroup}>
                     <Text style={styles.label}>Name</Text>
-                    <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} defaultValue='Rupesh Singh' />
+                    <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
 
                     <Text style={styles.label}>Username</Text>
-                    <TextInput style={styles.input} placeholder="Username" value={userName} onChangeText={setUserName} defaultValue='rupesh_singh_baghel' />
+                    <TextInput style={styles.input} placeholder="Username" value={userName} onChangeText={setUserName}/>
 
                     <Text style={styles.label}>Pronouns</Text>
                     <TextInput style={styles.input} placeholder="Pronouns" />
@@ -157,7 +146,7 @@ const EditProfile = ({ navigation }: any) => {
                 closeOnPressMask
                 useNativeDriver={false}
                 draggable={true}
-                height={Dimensions.get('window').height / 3.5}
+                height={Dimensions.get('window').height / 4}
                 style={{ overflow: 'hidden' }}
                 customStyles={{
                     wrapper: {
@@ -178,7 +167,7 @@ const EditProfile = ({ navigation }: any) => {
                 <TouchableOpacity style={styles.container2} onPress={openGallery}>
                     <View style={styles.container1}>
                         <Image
-                            source={Icons.allPost}
+                            source={Icons.images}
                             style={styles.iconImageSize}
                         />
                         <View style={styles.textArrange}>
@@ -189,7 +178,7 @@ const EditProfile = ({ navigation }: any) => {
                 <TouchableOpacity style={styles.container2} onPress={handleTakePhoto}>
                     <View style={styles.container1}>
                         <Image
-                            source={Icons.allPost}
+                            source={Icons.camera}
                             style={styles.iconImageSize}
                         />
                         <View style={styles.textArrange}>
@@ -200,7 +189,7 @@ const EditProfile = ({ navigation }: any) => {
                 <TouchableOpacity style={styles.container2} onPress={handleRemove}>
                     <View style={styles.container1}>
                         <Image
-                            source={Icons.allPost}
+                            source={Icons.trash}
                             style={styles.iconImageSize}
                         />
                         <View style={styles.textArrange}>
