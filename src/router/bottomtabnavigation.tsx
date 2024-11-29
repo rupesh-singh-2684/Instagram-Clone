@@ -3,24 +3,24 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icons } from '../assets';
 import HomeScreen from '../screens/homescreen';
-import Search from '../screens/search';
+// import Search, { SearchScreen } from '../screens/search';
 import NewPost from '../screens/post';
 import Reels from '../screens/reels';
 import Profile from '../screens/profile';
 import HomeRoutes from './home.routes';
 import ProfileRoutes from './profile.routes';
+import SearchRoutes from './search.routes';
+import ReelsScreen from '../screens/reels';
 
 
 const Tab = createBottomTabNavigator()
 const Bottomtab = () => {
 
     return (
-
         <Tab.Navigator
             screenOptions={({ route }): any => ({
-                tabBarIcon: ({ focused, color, size }) => {
+                tabBarIcon: ({ focused, color, size }: any) => {
                     let iconname;
-
                     if (route.name === 'Home') {
                         if (focused) {
                             iconname = Icons.pressedHome
@@ -70,39 +70,32 @@ const Bottomtab = () => {
                 tabBarLabel: () => { false },
                 tabBarIconStyle: { marginTop: Dimensions.get('window').height * .01 },
             })}>
-
             <Tab.Screen
                 name="Home"
                 component={HomeRoutes}
                 options={{ headerShown: false }}
             />
-
             <Tab.Screen
                 name="Search"
-                component={Search}
+                component={SearchRoutes}
                 options={{ headerShown: false }}
             />
-
             <Tab.Screen
                 name="NewPost"
                 component={NewPost}
                 options={{ headerShown: false }}
             />
-
             <Tab.Screen
                 name="Reels"
-                component={Reels}
+                component={ReelsScreen}
                 options={{ headerShown: false }}
             />
-
             <Tab.Screen
                 name="Profile"
                 component={ProfileRoutes}
                 options={{ headerShown: false }}
             />
-
         </Tab.Navigator>
-
     )
 }
 

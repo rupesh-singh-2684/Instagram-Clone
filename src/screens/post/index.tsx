@@ -1,7 +1,8 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { Icons } from '../../assets'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import styles from './styles';
 
 const NewPost = () => {
   const [imageUri, setImageUri] = useState('')
@@ -9,18 +10,15 @@ const NewPost = () => {
   const openGallery = () => {
     console.log("gallery");
     launchImageLibrary({ mediaType: 'photo', quality: 1 }, (response: any) => {
-      // console.log(response,'dsadadasda');
       if (response.assets && response.assets[0]) {
-        // console.log(imageUri, "imageuri")
         setImageUri(response.assets[0].uri);
+        // console.log(imageUri, "imageuri")
       }
     });
   };
   const handleTakePhoto = () => {
-    console.log('launch camerafghjkjhgfgjikjhghj');
+    console.log('launch camera');
     launchCamera({ mediaType: 'photo', quality: 1 }, (response: any) => {
-      console.log('launch camera');
-
       if (response.assets && response.assets[0]) {
         setImageUri(response.assets[0].uri);
         // console.log(imageUri, "image uri")
@@ -29,25 +27,23 @@ const NewPost = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: "space-between" }}>
-        <View style={{flex:1}}>
-            <Image source={{uri:imageUri}} style={{resizeMode:'cover',width:'auto',height:'100%'}}/>
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.container}>
+        <View style={styles.postImgContainer}>
+          <Image source={{uri:imageUri}} style={styles.postImg}/>
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'grey', padding: 15 ,flex:0.05}}>
+        <View style={styles.iconContainer}>
           <TouchableOpacity onPress={handleTakePhoto}>
-            <Image source={Icons.home} style={{ height: 30, width: 30, borderWidth: 1, borderRadius: 8 }} />
+            <Image source={Icons.camera} style={styles.iconImg}/>
           </TouchableOpacity>
+          <View style={styles.line} />
           <TouchableOpacity onPress={openGallery}>
-            <Image source={Icons.home} style={{ height: 30, width: 30, borderWidth: 1, borderRadius: 8 }} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={Icons.home} style={{ height: 30, width: 30, borderWidth: 1, borderRadius: 8 }} />
+            <Image source={Icons.images} style={styles.iconImg}/>
           </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
   )
 }
-
 export default NewPost
+

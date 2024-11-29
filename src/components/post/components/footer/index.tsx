@@ -83,7 +83,7 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
           useNativeDriver={false}
           draggable={true}
           height={Dimensions.get('window').height/1.8}
-          style={{ overflow: 'hidden' }}
+          // style={{ overflow: 'hidden' }}
           customStyles={{
             wrapper: {
               backgroundColor: 'rgba(0,0,0,0.5)',
@@ -103,7 +103,7 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
           <FlatList
             data={data}
             renderItem={renderItem}
-            keyExtractor={(item,index) => index.toString} />
+            keyExtractor={(item,index):any => index.toString} />
 
         </RBSheet>
     </View>

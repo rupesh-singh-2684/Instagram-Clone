@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
+import styles from './styles';
 
 const InputBox = ({
   placeholder,
@@ -22,7 +23,7 @@ const InputBox = ({
         onBlur={onBlur}
         value={value}
         secureTextEntry={secureTextEntry}
-        touched={touched}
+        // touched={touched}
         keyboardType={keyboardType}
         maxLength={maxLength}
       />
@@ -33,14 +34,3 @@ const InputBox = ({
 
 export default InputBox;
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    height: 50,
-    marginTop:6,
-  },
-
-  errorMsg: {
-    color: 'red',
-    paddingLeft: 5
-  },
-});

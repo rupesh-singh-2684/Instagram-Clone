@@ -3,6 +3,9 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from '../screens/homescreen';
 import StoryScreen from '../screens/storyScreen';
+import NotificationsScreen from '../screens/notification';
+import MessagesScreen from '../screens/chat';
+import ChatScreen from '../screens/chatScreen';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -14,9 +17,19 @@ const HomeRoutes = () => {
                 component={HomeScreen}
                 options={{ headerShown: false }} 
             />
-             {/* <HomeStack.Screen
-                name='StoryScreen'
-                component={StoryScreen}
+             <HomeStack.Screen
+                name='NotificationScreen'
+                component={NotificationsScreen}
+                options={{ headerShown: false }} 
+            />
+            {/* <HomeStack.Screen
+                name='Chat'
+                component={MessagesScreen}
+                options={{ headerShown: false }} 
+            /> */}
+            {/* <HomeStack.Screen
+                name='ChatScreen'
+                component={ChatScreen}
                 options={{ headerShown: false }} 
             /> */}
         </HomeStack.Navigator>

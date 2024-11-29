@@ -1,4 +1,4 @@
-const  profilePost = 
+const  images = 
     [
       {
         "id": 1,
@@ -73,4 +73,4 @@ const  profilePost =
     //     "reel": true
     //   }
     ]
-    export default profilePost
+    export default images

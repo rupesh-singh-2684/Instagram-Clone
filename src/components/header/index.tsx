@@ -2,8 +2,18 @@ import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Icons } from '../../assets'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 const Header = () => {
+
+  const navigation:any = useNavigation();
+
+  const handleNav =() =>{
+    navigation.navigate('NotificationScreen')
+  }
+  const handleNavChat =() =>{
+    navigation.navigate('Chat')
+  }
   return (
     <SafeAreaView style={styles.container}>
 
@@ -15,11 +25,11 @@ const Header = () => {
       </TouchableOpacity>
 
       <View style={styles.iconsDiv}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleNav}>
           <Image source={Icons.homeNotification}
             style={styles.headerIcons} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleNavChat}>
           <Image source={Icons.homeMessenger}
             style={styles.messangerIcon} />
         </TouchableOpacity>

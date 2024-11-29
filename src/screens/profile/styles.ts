@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     userName:{
@@ -62,6 +62,27 @@ const styles = StyleSheet.create({
         alignItems:'center',
         borderRadius:5
 
+    },
+    renderPost:{
+        width:Dimensions.get('window').width/3,
+        height:Dimensions.get('window').width/3, 
+        marginBottom:2
+    },
+    renderImg:{
+        flex:1,
+        width:undefined, 
+        height:undefined
+    },
+    render:{
+        flexDirection:'row',
+        flexWrap:'wrap',
+        flex:1,
+        marginTop:10
+    },
+    sectionContainer:{
+        flexDirection: 'row', 
+        justifyContent: 'space-around', 
+        marginTop: 20
     }
 })
 

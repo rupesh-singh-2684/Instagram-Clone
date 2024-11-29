@@ -5,12 +5,18 @@ import HomeScreen from '../screens/homescreen';
 import StoryScreen from '../screens/storyScreen';
 import Login from '../screens/login';
 import Signup from '../screens/signUp';
+import SplashScreen from '../screens/splash';
 
 const AuthStack = createNativeStackNavigator();
 
 const AuthRoutes = () => {
     return (
         <AuthStack.Navigator>
+            <AuthStack.Screen
+                name='SplashScreen'
+                component={SplashScreen}
+                options={{ headerShown: false }} 
+            />
             <AuthStack.Screen
                 name='loginScreen'
                 component={Login}

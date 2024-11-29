@@ -4,31 +4,27 @@ export const loginInitialValue = {
     password: '',
   };
   
-  // Custom validation function for login form
   export const validateLogin = (values:any) => {
     const errors = {};
   
-    // Validate username
    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.username)) {
       errors.username = 'Please enter a valid email address';
     }
-  
-    // Validate password
+    // else if (!/^[789]\d{9}$/.test(values.username)){
+    //   errors.username = 'Please enter a valid phone number';
+    // }
    if (values.password.length < 6) {
       errors.password = 'Password must be at least 6 characters long';
     }
-  
-    return errors; // Return errors object, if no errors, it will be an empty object
+    return errors; 
   };
   export const signupInitialValue = {
     mobileNumber: '',
   };
   
-  // Simple validation function for signup form
   export const validateSignup = (values:any) => {
     const errors = {};
   
-    // Validate mobile number
     if (!values.mobileNumber) {
       errors.mobileNumber = 'Mobile Number is required';
     } else if (!/^[789]\d{9}$/.test(values.mobileNumber)) {
@@ -36,6 +32,5 @@ export const loginInitialValue = {
     } else if (values.mobileNumber.length !== 10) {
       errors.mobileNumber = 'Mobile number must be 10 characters';
     }
-  
-    return errors; // Return errors object
+    return errors;
   };

@@ -25,7 +25,6 @@ const Signup = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       console.log(values);
-      // navigate or handle signup here
     }
   };
 
@@ -36,7 +35,7 @@ const Signup = () => {
 
         <InputBox
           placeholder={'Mobile Number'}
-          onChangeText={value => handleInputChange('mobileNumber', value)}
+          onChangeText={(value:any) => handleInputChange('mobileNumber', value)}
           value={values.mobileNumber}
           errors={errors.mobileNumber}
           keyboardType={'numeric'}

@@ -39,7 +39,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     mainContainer: {
       flex: 1,
-      alignItems: 'center',
+      // alignItems: 'center',
       // backgroundColor:'red',
       // marginHorizontal:30
     },
@@ -56,9 +56,11 @@ const styles = StyleSheet.create({
     },
     forgotPass: {
       marginTop: 14,
-      alignSelf: 'center',
-      left:140,
+      // alignSelf: 'center',
+      // left:140,
       color: '#3797EF',
+      alignItems:'flex-end',
+      top:8
     },
     forgotPassText: {
       fontSize: 15,
@@ -117,17 +119,17 @@ const styles = StyleSheet.create({
     },
     inputView: {
       borderWidth: 1,
-      width: '25%',
+      width: '100%',
       height: 45,
-      justifyContent:'center',
+      // justifyContent:'center',
       borderColor: '#ccc',
       borderRadius: 5,
-      marginTop:16,
+      // marginTop:16,
       paddingHorizontal: 10,
       fontSize: 16,
       // color:'red',
       // backgroundColor:'yellow',
-      alignSelf:'center'
+      // alignSelf:'center',
     },
     facebook:{
     

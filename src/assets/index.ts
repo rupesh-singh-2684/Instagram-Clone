@@ -33,8 +33,14 @@ const Icons = {
     camera:require(`${pathToIcons}/camera.png`),
     trash:require(`${pathToIcons}/trash.png`),
     images:require(`${pathToIcons}/images.png`),
-
-
+    camera2:require(`${pathToIcons}/camera2.png`),
+    mic:require(`${pathToIcons}/mic.png`),
+    gallery:require(`${pathToIcons}/gallery.png`),
+    add_button:require(`${pathToIcons}/add-button.png`),
+    saveChat:require(`${pathToIcons}/saveChat.png`),
+    back:require(`${pathToIcons}/back.png`),
+    call:require(`${pathToIcons}/telephone.png`),
+    videoCall:require(`${pathToIcons}/videoCall.png`),
 }
 
 const Images = {
@@ -47,7 +53,11 @@ const Images = {
 }
 
 const Videos = {
-    // testingVideo:require(`${pathToVideos}/bgvp.mp4`)
+    Video1:require(`${pathToVideos}/video1.mp4`),
+    Video2:require(`${pathToVideos}/video2.mp4`),
+    Video3:require(`${pathToVideos}/video3.mp4`),
+    Video4:require(`${pathToVideos}/video4.mp4`)
+
 }
 
 export {Icons,Images,Videos};

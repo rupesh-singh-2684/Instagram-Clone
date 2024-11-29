@@ -6,15 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 
 const Story = ({ story }: any) => {
 
-    const {
-        user:{
-            id,
-            imageUri,
-            name
-        }
-    } = story
-
-    const navigation = useNavigation()
+    const {user:{id,imageUri,name}} = story
+    const navigation:any = useNavigation()
     const onPress = () => {
         navigation.navigate("StoryScreen", {userId:id});
     }

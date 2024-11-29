@@ -15,7 +15,7 @@ const StoryScreen = () => {
   const route: any = useRoute();
   // console.log(route);
   const userId = route.params.userId;
-  const navigation = useNavigation();
+  const navigation:any = useNavigation();
 
   useEffect(() => {
     const userStories = stories.find(storyData => storyData.user.id === userId)

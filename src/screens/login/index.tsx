@@ -1,9 +1,6 @@
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
-// import CustomButton from '../../../components/CustomButton';
-// import {loginInitialValue, validateLogin} from '../utils';
-import {useNavigation} from '@react-navigation/native';
-
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import InputBox from '../../components/InputBox';
 import { loginInitialValue, validateLogin } from './utils';
 import { Icons } from '../../assets';
@@ -11,11 +8,11 @@ import styles from './styles';
 import CustomButton from '../../components/customButton';
 
 const Login = () => {
-  const navigation = useNavigation();
-  const [values, setValues]:any = useState({loginInitialValue});
-  const [errors, setErrors]:any = useState({});
+  const navigation: any = useNavigation();
+  const [values, setValues]: any = useState({ loginInitialValue });
+  const [errors, setErrors]: any = useState({});
 
-  const handleChange = (field:any, value:any) => {
+  const handleChange = (field: any, value: any) => {
     setValues({
       ...values,
       [field]: value,
@@ -23,9 +20,8 @@ const Login = () => {
     if (value.trim() === '') {
       setErrors({
         ...errors,
-        [field]: `${
-          field === 'username' ? 'Username' : 'Password'
-        } is required`,
+        [field]: `${field === 'username' ? 'Username' : 'Password'
+          } is required`,
       });
     } else {
       setErrors({
@@ -43,7 +39,7 @@ const Login = () => {
       console.log('Login successful with values:', values);
       navigation.reset({
         index: 0,
-        routes: [{name: 'Bottom'}],
+        routes: [{ name: 'Bottom' }],
       });
     } else {
       console.log('Validation failed', validationErrors);

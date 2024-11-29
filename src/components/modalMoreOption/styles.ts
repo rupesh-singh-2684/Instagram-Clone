@@ -18,7 +18,8 @@ const styles = StyleSheet.create ({
       },
     container1:{
         flexDirection:'row',
-        alignItems:'center'
+        alignItems:'center',
+        // backgroundColor:'red'
     },
     imageStyleView:{
         justifyContent:'center',
@@ -61,6 +62,10 @@ const styles = StyleSheet.create ({
         fontSize:16,
         fontWeight:'500',
         color:'#DCDCDC',
+    },
+    img:{
+        height: 20, 
+        width: 20
     }
 })
 

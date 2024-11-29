@@ -29,7 +29,7 @@ const EditProfile = ({ navigation }: any) => {
         });
     };
     const handleTakePhoto = () => {
-        console.log('launch camerafghjkjhgfgjikjhghj');
+        console.log('launch camera');
         launchCamera({ mediaType: 'photo', quality: 1 }, (response: any) => {
             console.log('launch camera');
 
@@ -40,7 +40,7 @@ const EditProfile = ({ navigation }: any) => {
         });
     }
     const handleRemove =() =>{
-        setImageUri(0)
+        setImageUri('')
     }
     const refRBSheet = useRef<any>();
 
@@ -63,7 +63,7 @@ const EditProfile = ({ navigation }: any) => {
                 <View style={styles.profileSection}>
                     <Image
                         style={styles.profileImage}
-                        source={imageUri ? { uri: imageUri } : Images.profileImage2}
+                        source={imageUri ? { uri: imageUri } : Images.profileImage}
                     />
                     <TouchableOpacity onPress={handleMoreOption}>
                         <Text style={styles.editPicture}>Edit picture or avatar</Text>
@@ -146,8 +146,7 @@ const EditProfile = ({ navigation }: any) => {
                 closeOnPressMask
                 useNativeDriver={false}
                 draggable={true}
-                height={Dimensions.get('window').height / 4}
-                style={{ overflow: 'hidden' }}
+                height={Dimensions.get('window').height / 3.5}
                 customStyles={{
                     wrapper: {
                         backgroundColor: 'rgba(0,0,0,0.5)',

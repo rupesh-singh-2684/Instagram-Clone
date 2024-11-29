@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     flex:1,
     marginTop: 20,
     // backgroundColor:'red'
+    marginHorizontal:30
   },
   text: {
     fontSize: 25,
@@ -30,10 +31,11 @@ export const styles = StyleSheet.create({
   loginText: {
     fontSize: 16,
     textAlign: 'center',
+    color: '#3797EF',
   },
   inputView: {
     borderWidth: 1,
-    width: '85%',
+    width: '100%',
     height: 45,
     justifyContent:'center',
     borderColor: '#ccc',
