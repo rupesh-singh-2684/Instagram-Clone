@@ -18,10 +18,13 @@ const styles = StyleSheet.create({
     userInfo: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent:'center',
+        // flex:1
     },
     userName: {
         fontSize: 18,
         fontWeight: 'bold',
+        marginHorizontal:10
     },
     notificationIcon: {
         width: 25,
@@ -114,6 +117,15 @@ const styles = StyleSheet.create({
         // backgroundColor:'red',
         right:10
     },
+    userImg:{
+        height:25,width:25,borderRadius:13
+    },
+    iconContainer:{
+        flexDirection: 'row' ,alignSelf:'center',marginRight:10
+    },
+    message:{
+        marginHorizontal: 10
+    }
 });
 
 export default styles;

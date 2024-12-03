@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './styles';
-import { Images } from '../../assets';
+
 
 const notifications = [
   { id: '1', user: 'arsh', time: '18h', action: 'started following you', followBack: true },
@@ -11,6 +11,7 @@ const notifications = [
 ];
 
 export default function NotificationsScreen() {
+  // console.log('object',route)
   return (
     <SafeAreaView style={styles.container}>
       <FlatList

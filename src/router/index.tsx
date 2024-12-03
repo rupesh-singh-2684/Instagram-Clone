@@ -1,9 +1,7 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Bottomtab from './bottomtabnavigation';
 import StoryScreen from '../screens/storyScreen';
-import Login from '../screens/login';
 import AuthRoutes from './authentication.route';
 import MessagesScreen from '../screens/chat';
 import ChatScreen from '../screens/chatScreen';

@@ -1,8 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import HomeScreen from '../screens/homescreen';
-import StoryScreen from '../screens/storyScreen';
 import Profile from '../screens/profile';
 import EditProfile from '../screens/editProfile';
 import SectionMenu from '../screens/profile/component/sectionlist';
@@ -14,9 +12,10 @@ const ProfileRoutes = () => {
     return (
         <ProfileStack.Navigator>
             <ProfileStack.Screen
-                name='Profile'
+                name='ProfileScreen'
                 component={Profile}
-                options={{ headerShown: false }} />
+                options={{ headerShown: false }} 
+            />
             <ProfileStack.Screen
                 name='EditProfile'
                 component={EditProfile}

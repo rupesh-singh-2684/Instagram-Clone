@@ -83,7 +83,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row', 
         justifyContent: 'space-around', 
         marginTop: 20
-    }
+    },
+    postButtonText: {
+        fontSize: 16,
+        color: '#fff',
+        textAlign: 'center',
+      },
+      addNewPostText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+      },
 })
 
 export default styles

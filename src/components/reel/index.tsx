@@ -1,166 +1,102 @@
-/* eslint-disable react-native/no-inline-styles */
-import React, {useRef, useState} from 'react';
-import {View, Text, Dimensions, TouchableOpacity, Image} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, TouchableOpacity, Image,} from 'react-native';
 import Video from 'react-native-video';
 import { Icons } from '../../assets';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import styles from './styles';
 
-const SingleReel = ({item, index, currentIndex}:any) => {
+const SingleReel = ({ item, index, currentIndex ,likeCounts, liked, onLikePress }: any) => {
 
   const videoRef = useRef(null);
-
   const [mute, setMute] = useState(false);
+  const [localLiked, setLocalLiked] = useState(liked);
+  const [localLikeCounts, setLocalLikeCounts] = useState(likeCounts);
 
-  const [like, setLike] = useState(item.isLike);
-
+  const onLikePressed = () => {
+    setLocalLiked(!localLiked);
+    onLikePress(index);
+  };
+  useEffect(() => {
+    setLocalLikeCounts(likeCounts);
+    setLocalLiked(liked);
+  }, [likeCounts, liked]);
+  
   return (
-    <View style={{height:Dimensions.get('window').height,bottom:80}}>
+    <View style={styles.mainContainer}>
       <View
-        style={{
-          width: Dimensions.get('window').width,
-          height:   Dimensions.get('window').height,
-          position: 'relative',
-          justifyContent: 'center',
-          alignItems: 'center',
-        //   marginVertical:20
-          
-        }}>
+        style={styles.container}>
         <TouchableOpacity activeOpacity={0.9} onPress={() => setMute(!mute)}
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-          }}>
+          style={styles.reelContainer}>
           <Video
             videoRef={videoRef}
             repeat={true}
             resizeMode="cover"
             paused={currentIndex === index ? false : true}
-            source={{uri:item.videoUri}}
+            source={{ uri: item.videoUri }}
             muted={mute}
-            style={{
-              width: '100%',
-              height: '100%',
-              position: 'absolute',
-            }}
+            style={styles.reels}
           />
         </TouchableOpacity>
-        <View
-          style={{
-            position: 'absolute',
-            width: '100%',
-            // zIndex: 1,
-            bottom: 0,
-            // justifyContent:'flex-end',
-            padding: 10,
-            // alignItems:'flex-end'
-          }}>
-          <View style={{}}>
-            <TouchableOpacity style={{width: 150}}>
+        <View style={styles.details}>
+          <View>
+            <TouchableOpacity>
               <View
-                style={{
-                  width: 100,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+                style={styles.userDetails}>
                 <View
-                  style={{
-                    width: 30,
-                    height: 32,
-                    borderRadius: 50,
-                    backgroundColor: 'white',
-                    margin: 10,
-                  }}>
+                  style={styles.profileImg}>
                   <Image
-                    source={item.user.imageUri}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      resizeMode: 'cover',
-                      borderRadius: 50,
-                    }}
+                    source={{ uri: item.user.imageUri }}
+                    style={styles.img}
                   />
                 </View>
-                <Text style={{color: 'white', fontSize: 16}}>{item.title}</Text>
+                <Text style={styles.userName}>{item.user.name}</Text>
               </View>
             </TouchableOpacity>
-            <Text style={{color: 'white', fontSize: 14, marginHorizontal: 10}}>
+            <Text style={styles.captions}>
               {item.captions}
             </Text>
-            <View style={{flexDirection: 'row', padding: 10}}>
-              <Text style={{color: 'white'}}>Original Audio</Text>
+            <View style={styles.music}>
+              <Text style={styles.audioText}>Original Audio</Text>
             </View>
           </View>
         </View>
         <View
-          style={{
-            position: 'absolute',
-            bottom: 10,
-            right: 0,
-          }}>
+          style={styles.iconsContainer}>
           <TouchableOpacity
-            onPress={() => setLike(!like)}
-            style={{padding: 10}}>
+            onPress={onLikePressed}
+            style={styles.icons}>
             <Image
               source={
-                like
+                localLiked
                   ? Icons.heart
                   : Icons.homeNotification
               }
-              style={{height:23,width:23,tintColor:'white'}}
+              style={styles.likeImg}
             />
-            <Text style={{color: 'white'}}>{item.likeCounts}</Text>
+            <Text style={styles.likeCounts}>{localLikeCounts}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{padding: 10}}>
+          <TouchableOpacity style={styles.icons}>
             <Image
               source={Icons.comments}
-              style={{
-                width: 24,
-                height: 25,
-                tintColor: 'white',
-                resizeMode: 'contain',
-              }}
+              style={styles.commentsImg}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={{padding: 10}}>
+          <TouchableOpacity style={styles.icons}>
             <Image
               source={Icons.share}
-              style={{
-                width: 24,
-                height: 25,
-                tintColor: 'white',
-                resizeMode: 'contain',
-              }}
+              style={styles.shareImg}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={{padding: 10}}>
+          <TouchableOpacity style={styles.icons}>
             <Image
-              source={Icons.threeDots}
-              style={{
-                width: 30,
-                height: 30,
-                tintColor: 'white',
-                // resizeMode: 'contain',
-              }}
+              source={Icons.hotizontalDots}
+              style={styles.threeDots}
             />
           </TouchableOpacity>
           <View
-            style={{
-              width: 30,
-              height: 30,
-              borderRadius: 10,
-              borderWidth: 2,
-              borderColor: 'white',
-              margin: 10,
-            }}>
+            style={styles.audio}>
             <Image
-              source={item.user.imageUri}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: 10,
-                resizeMode: 'cover',
-              }}
+              source={{uri:item.user.imageUri}}
+              style={styles.audioImg}
             />
           </View>
         </View>
@@ -170,3 +106,5 @@ const SingleReel = ({item, index, currentIndex}:any) => {
 };
 
 export default SingleReel;
+
+

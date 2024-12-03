@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native'
 const Header = () => {
 
   const navigation:any = useNavigation();
-
   const handleNav =() =>{
     navigation.navigate('NotificationScreen')
   }
@@ -16,14 +15,12 @@ const Header = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
-
       <TouchableOpacity>
         <View>
           <Image source={Icons.homeLogo}
             style={styles.titleImg} />
         </View>
       </TouchableOpacity>
-
       <View style={styles.iconsDiv}>
         <TouchableOpacity onPress={handleNav}>
           <Image source={Icons.homeNotification}
@@ -37,5 +34,4 @@ const Header = () => {
     </SafeAreaView>
   )
 }
-
 export default Header

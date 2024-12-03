@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import stories from '../../assets/data/stories';
 import styles from './styles';
-import Header from '../../components/post/components/header';
 import ProfilePicture from '../../components/profilePicture';
 import { Icons } from '../../assets';
 

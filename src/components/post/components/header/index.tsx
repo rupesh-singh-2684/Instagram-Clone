@@ -4,14 +4,13 @@ import ProfilePicture from '../../../profilePicture'
 import styles from './styles'
 import { Icons } from '../../../../assets'
 
-const Header = ({ imageUri, name }:any) => {
+const Header = ({imageUri, name}:any) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.profileContainer}>
         <ProfilePicture uri={imageUri} size={35} />
         <Text style={styles.userName}>{name}</Text>
       </TouchableOpacity>
-
       <TouchableOpacity>
         <Image source={Icons.threeDots}
           style={styles.icon} />
@@ -19,5 +18,4 @@ const Header = ({ imageUri, name }:any) => {
     </View>
   )
 }
-
 export default Header

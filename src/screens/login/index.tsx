@@ -1,16 +1,32 @@
-import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import InputBox from '../../components/InputBox';
-import { loginInitialValue, validateLogin } from './utils';
-import { Icons } from '../../assets';
+import {loginInitialValue, validateLogin} from './utils';
+import {Icons} from '../../assets';
 import styles from './styles';
 import CustomButton from '../../components/customButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const navigation: any = useNavigation();
-  const [values, setValues]: any = useState({ loginInitialValue });
+  const [values, setValues]: any = useState({loginInitialValue});
   const [errors, setErrors]: any = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      const userToken = await AsyncStorage.getItem('userToken');
+      if (userToken) {
+        setIsLoggedIn(true);
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Bottom'}],
+        });
+      }
+    };
+    checkLoginStatus();
+  }, [navigation]);
 
   const handleChange = (field: any, value: any) => {
     setValues({
@@ -20,8 +36,9 @@ const Login = () => {
     if (value.trim() === '') {
       setErrors({
         ...errors,
-        [field]: `${field === 'username' ? 'Username' : 'Password'
-          } is required`,
+        [field]: `${
+          field === 'username' ? 'Username' : 'Password'
+        } is required`,
       });
     } else {
       setErrors({
@@ -30,16 +47,16 @@ const Login = () => {
       });
     }
   };
-
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const validationErrors = validateLogin(values);
     setErrors(validationErrors);
-
     if (Object.keys(validationErrors).length === 0) {
       console.log('Login successful with values:', values);
+      await AsyncStorage.setItem('userToken', 'your_auth_token');
+      setIsLoggedIn(true);
       navigation.reset({
         index: 0,
-        routes: [{ name: 'Bottom' }],
+        routes: [{name: 'Bottom'}],
       });
     } else {
       console.log('Validation failed', validationErrors);
@@ -49,10 +66,7 @@ const Login = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.subContainer}>
-        <Image
-          source={Icons.homeLogo}
-          style={styles.logoImage}
-        />
+        <Image source={Icons.homeLogo} style={styles.logoImage} />
         <View>
           <InputBox
             placeholder={'Username, email address or mobile number'}
@@ -62,7 +76,6 @@ const Login = () => {
             touched={!!errors.username}
             errors={errors.username}
           />
-
           <InputBox
             placeholder={'Password'}
             onChangeText={text => handleChange('password', text)}
@@ -72,7 +85,6 @@ const Login = () => {
             errors={errors.password}
             secureTextEntry
           />
-
           <TouchableOpacity style={styles.forgotPass}>
             <Text style={styles.forgotPassText}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -85,10 +97,7 @@ const Login = () => {
         </View>
 
         <View style={styles.facebookContainer}>
-          <Image
-            source={Icons.facebookLogo}
-            style={styles.facebookLogo}
-          />
+          <Image source={Icons.facebookLogo} style={styles.facebookLogo} />
           <TouchableOpacity style={styles.facebook}>
             <Text style={styles.facebookText}>Log in with Facebook</Text>
           </TouchableOpacity>

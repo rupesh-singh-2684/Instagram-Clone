@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
         fontSize:14,
         marginLeft:-5,
         alignSelf:'center',
-
-
     },
     captions:{
         margin:10
@@ -29,7 +27,8 @@ const styles = StyleSheet.create({
     time:{
         margin:10,
         color:'grey'
-    }
+    },
+    
 })
 
 export default styles

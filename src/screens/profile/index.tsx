@@ -1,32 +1,66 @@
 import { View, Text, SafeAreaView, Image, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import { Icons, Images } from '../../assets'
-import post from '../../assets/data/post1'
-import Post from '../../components/post'
-import Stories from '../../components/stories'
-import stories from '../../assets/data/stories1'
-import profilePost from '../../assets/data/profilePost1'
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import images from '../../assets/data/profilePost'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const Profile = ({ route, navigation }: any) => {
+const Profile = ({route}:any) => {
+
+  const navigation:any = useNavigation();
   const [isActiveIndex, setIsActiveIndex] = useState(0)
+  // console.log('jhsdabjhbasdjvbh=>>>>>>>',route)
+  const [posts, setPosts] = useState([]);
+  const { name, bio, userName, imageUri, newPostImage } = route.params as { name: any, userName: any, bio: any, imageUri: any, newPostImage:any } || { imageUri: Images.profileImage3 }
+  
+  // console.log(route.params,'dghjasgdjgajhdgadjhad');
+  
+  useEffect(() => {
+    fetchPostsFromStorage();
+
+    if (newPostImage) {
+      addNewPostImage(newPostImage);
+    }
+  }, [newPostImage]);
+
+  const addNewPostImage = async (uri: string) => {
+    try {
+      const storedPosts = await AsyncStorage.getItem('@user_posts');
+      const postsArray = storedPosts ? JSON.parse(storedPosts) : [];
+
+      if (!postsArray.some((post: any) => post.imageUri === uri)) {
+        postsArray.push({ imageUri: uri });
+        await AsyncStorage.setItem('@user_posts', JSON.stringify(postsArray));
+        setPosts(postsArray);
+      }
+    } catch (error) {
+      console.error('Failed to save the new post image:', error);
+    }
+  };
+
+  const fetchPostsFromStorage = async () => {
+    try {
+      const storedPosts = await AsyncStorage.getItem('@user_posts');
+      if (storedPosts) {
+        setPosts(JSON.parse(storedPosts));
+      }
+    } catch (error) {
+      console.error('Failed to fetch posts from AsyncStorage:', error);
+    }
+  };
 
   const onPressed = (index: any) => {
     setIsActiveIndex(index)
   }
-  const { name, bio, userName, imageUri } = route.params as { name: any, userName: any, bio: any, imageUri: any, } || { imageUri: Images.profileImage3 }
-
-
   const render = () => {
-    return images.map((image, index) => {
-      // console.log(image,'imageimageimageimage');
+    return posts.map((post, index) => {
+      // console.log(posts,'imageimageimageimage');
       return (
         (
-          <TouchableOpacity key={index} style={[styles.renderPost, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }]} onPress={() => navigation.navigate('ProfilePostDetailScreen', { name, bio, userName, imageUri, image })}>
+          <TouchableOpacity key={index} style={[styles.renderPost, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }]} onPress={() => navigation.navigate('ProfilePostDetailScreen', { name, bio, userName, imageUri, post })}>
             <Image style={styles.renderImg}
-              source={{ uri: image.imageUri }} />
+              source={{uri: post.imageUri}}/>
           </TouchableOpacity>
         )
       )
@@ -37,12 +71,12 @@ const Profile = ({ route, navigation }: any) => {
       return (
         <View key={index} style={[styles.renderPost, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }]}>
           <Image style={styles.renderImg}
-            source={{ uri: image.imageUri }} />
+            source={{uri: image.imageUri}} />
         </View>
       )
     })
   }
-
+  
   const renderPost = () => {
     if (isActiveIndex == 0) {
       return (

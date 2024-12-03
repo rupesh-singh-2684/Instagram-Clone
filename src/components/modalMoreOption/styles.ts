@@ -66,6 +66,12 @@ const styles = StyleSheet.create ({
     img:{
         height: 20, 
         width: 20
+    },
+    details:{
+        flexDirection: 'row'
+    },
+    like:{
+        alignSelf: 'flex-end' 
     }
 })
 

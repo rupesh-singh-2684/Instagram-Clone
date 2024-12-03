@@ -2,20 +2,31 @@ import React, {useState, useEffect} from 'react';
 import {Image, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {styles} from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = () => {
   const navigation:any = useNavigation();
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-      navigation.navigate('loginScreen');
+    const checkLoginStatus = async () => {
+      const userToken = await AsyncStorage.getItem('userToken');
+      if (userToken) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Bottom' }],
+        });
+      } else {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'loginScreen' }],
+        });
+      }
+    };
+    setTimeout(() => {
+      checkLoginStatus();
     }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [navigation]);
-
+  }, [navigation])
   return (
     <View style={styles.container}>
       <Image

@@ -1,25 +1,21 @@
 import React, { useRef, useState } from 'react';
-import {View,Text,TextInput,StyleSheet,Image,TouchableOpacity,ScrollView,SafeAreaView,Dimensions,FlatList,} from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, ScrollView, SafeAreaView, Dimensions,} from 'react-native';
 import styles from './styles';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { Icons, Images } from '../../assets';
 
-
 const EditProfile = ({ navigation }: any) => {
-
     const [name, setName] = useState("")
     const [userName, setUserName] = useState("")
     const [bio, setBio] = useState("")
     const [imageUri, setImageUri] = useState("")
-    const [removeDp, setRemoveDp] = useState("")
 
     const handleBack = () => {
-        navigation.navigate('Profile', { name, userName, bio, imageUri })
+        navigation.navigate('ProfileScreen', { name, userName, bio, imageUri })
     }
-
     const openGallery = () => {
-        console.log("gallery");
+        // console.log("gallery");
         launchImageLibrary({ mediaType: 'photo', quality: 1 }, (response: any) => {
             // console.log(response,'dsadadasda');
             if (response.assets && response.assets[0]) {
@@ -29,17 +25,16 @@ const EditProfile = ({ navigation }: any) => {
         });
     };
     const handleTakePhoto = () => {
-        console.log('launch camera');
+        // console.log('launch camera');
         launchCamera({ mediaType: 'photo', quality: 1 }, (response: any) => {
-            console.log('launch camera');
-
+            // console.log('launch camera');
             if (response.assets && response.assets[0]) {
-                setImageUri(response.assets[0].uri);
                 // console.log(imageUri, "image uri")
+                setImageUri(response.assets[0].uri);
             }
         });
     }
-    const handleRemove =() =>{
+    const handleRemove = () => {
         setImageUri('')
     }
     const refRBSheet = useRef<any>();
@@ -58,7 +53,6 @@ const EditProfile = ({ navigation }: any) => {
                     <Text style={styles.backButton}>{ }</Text>
                 </TouchableOpacity>
             </View>
-
             <ScrollView>
                 <View style={styles.profileSection}>
                     <Image
@@ -69,13 +63,12 @@ const EditProfile = ({ navigation }: any) => {
                         <Text style={styles.editPicture}>Edit picture or avatar</Text>
                     </TouchableOpacity>
                 </View>
-
                 <View style={styles.inputGroup}>
                     <Text style={styles.label}>Name</Text>
-                    <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
+                    <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
 
                     <Text style={styles.label}>Username</Text>
-                    <TextInput style={styles.input} placeholder="Username" value={userName} onChangeText={setUserName}/>
+                    <TextInput style={styles.input} placeholder="Username" value={userName} onChangeText={setUserName} />
 
                     <Text style={styles.label}>Pronouns</Text>
                     <TextInput style={styles.input} placeholder="Pronouns" />
@@ -89,7 +82,6 @@ const EditProfile = ({ navigation }: any) => {
                         onChangeText={setBio}
                         defaultValue='...'
                     />
-
                     <Text style={styles.label}>Links</Text>
                     <TextInput style={styles.input} placeholder="Links" />
 
@@ -102,35 +94,30 @@ const EditProfile = ({ navigation }: any) => {
 
                 <View style={styles.profileInfoSection}>
                     <Text style={styles.infoHeader}>Profile Information</Text>
-
                     <View style={styles.infoRow}>
                         <Text style={styles.infoLabel}>Page</Text>
                         <TouchableOpacity>
                             <Text style={styles.infoValue}>Connect or Create</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View style={styles.infoRow}>
                         <Text style={styles.infoLabel}>Category</Text>
                         <TouchableOpacity>
                             <Text style={styles.infoValue}>Photographer</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View style={styles.infoRow}>
                         <Text style={styles.infoLabel}>Contact options</Text>
                         <TouchableOpacity>
                             <Text style={styles.infoValue}>Address</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View style={styles.infoRow}>
                         <Text style={styles.infoLabel}>Action buttons</Text>
                         <TouchableOpacity>
                             <Text style={styles.infoValue}>None active</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View style={styles.infoRow}>
                         <Text style={styles.infoLabel}>Profile display</Text>
                         <TouchableOpacity>
@@ -139,8 +126,6 @@ const EditProfile = ({ navigation }: any) => {
                     </View>
                 </View>
             </ScrollView>
-
-
             <RBSheet
                 ref={refRBSheet}
                 closeOnPressMask
@@ -161,47 +146,43 @@ const EditProfile = ({ navigation }: any) => {
                     },
                 }}
                 onClose={() => console.log('Bottom Sheet closed')}>
-
-                <View> 
-                <TouchableOpacity style={styles.container2} onPress={openGallery}>
-                    <View style={styles.container1}>
-                        <Image
-                            source={Icons.images}
-                            style={styles.iconImageSize}
-                        />
-                        <View style={styles.textArrange}>
+                <View>
+                    <TouchableOpacity style={styles.container2} onPress={openGallery}>
+                        <View style={styles.container1}>
+                            <Image
+                                source={Icons.images}
+                                style={styles.iconImageSize}
+                            />
+                            <View style={styles.textArrange}>
                                 <Text style={styles.name}>Upload From Gallery</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.container2} onPress={handleTakePhoto}>
-                    <View style={styles.container1}>
-                        <Image
-                            source={Icons.camera}
-                            style={styles.iconImageSize}
-                        />
-                        <View style={styles.textArrange}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.container2} onPress={handleTakePhoto}>
+                        <View style={styles.container1}>
+                            <Image
+                                source={Icons.camera}
+                                style={styles.iconImageSize}
+                            />
+                            <View style={styles.textArrange}>
                                 <Text style={styles.name}>Open Camera</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.container2} onPress={handleRemove}>
-                    <View style={styles.container1}>
-                        <Image
-                            source={Icons.trash}
-                            style={styles.iconImageSize}
-                        />
-                        <View style={styles.textArrange}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.container2} onPress={handleRemove}>
+                        <View style={styles.container1}>
+                            <Image
+                                source={Icons.trash}
+                                style={styles.iconImageSize}
+                            />
+                            <View style={styles.textArrange}>
                                 <Text style={styles.name}>Remove Icon</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
                 </View>
             </RBSheet>
         </SafeAreaView>
     );
 };
-
-
-
 export default EditProfile;

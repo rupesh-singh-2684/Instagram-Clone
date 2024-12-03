@@ -39,6 +39,17 @@ const styles = StyleSheet.create({
       color: 'gray',
       fontSize: 12,
     },
+    comments:{
+      fontWeight: '500',
+      // alignSelf:'center',
+      marginHorizontal:5
+    },
+    commentUserImg:{
+      width: 25,
+      height: 25,
+      borderRadius: 13,
+      marginRight: 10,
+    }
   });
 
   export default styles

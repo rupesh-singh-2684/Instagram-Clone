@@ -41,23 +41,21 @@ const Icons = {
     back:require(`${pathToIcons}/back.png`),
     call:require(`${pathToIcons}/telephone.png`),
     videoCall:require(`${pathToIcons}/videoCall.png`),
+    hotizontalDots:require(`${pathToIcons}/dots.png`),
 }
 
 const Images = {
     profileImage:require(`${pathToImages}/profile.jpg`),
-    // profileImage1:require(`${pathToImages}/profile1.webp`),
     profileImage2:require(`${pathToImages}/profile1.jpeg`),
     profileImage3:'/Users/admin/Desktop/InstagramClone/src/assets/images/profile1.jpeg',
     profileImage4:require(`${pathToImages}/profile3.jpeg`),
-
 }
 
 const Videos = {
-    Video1:require(`${pathToVideos}/video1.mp4`),
-    Video2:require(`${pathToVideos}/video2.mp4`),
-    Video3:require(`${pathToVideos}/video3.mp4`),
-    Video4:require(`${pathToVideos}/video4.mp4`)
-
+    // Video1:require(`${pathToVideos}/video1.mp4`),
+    // Video2:require(`${pathToVideos}/video2.mp4`),
+    // Video3:require(`${pathToVideos}/video3.mp4`),
+    // Video4:require(`${pathToVideos}/video4.mp4`)
 }
 
 export {Icons,Images,Videos};

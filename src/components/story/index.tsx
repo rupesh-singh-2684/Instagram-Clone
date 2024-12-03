@@ -4,14 +4,13 @@ import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-const Story = ({ story }: any) => {
+const Story = ({story}: any) => {
 
     const {user:{id,imageUri,name}} = story
     const navigation:any = useNavigation()
     const onPress = () => {
         navigation.navigate("StoryScreen", {userId:id});
     }
-
     return (
         <TouchableOpacity style={styles.container} onPress={onPress} >
             <ProfilePicture uri={imageUri} />

@@ -16,6 +16,18 @@ const styles = StyleSheet.create({
       height: '100%',
       resizeMode: 'cover',
     },
+    inputText: {
+      borderWidth: 0.4,
+      width: '92%',
+      height: 40,
+      marginBottom: 10,
+      borderColor: 'grey',
+      backgroundColor: '#F4F4F4',
+      borderRadius: 15,
+      paddingHorizontal: 15,
+      fontSize: 14,
+      alignSelf: 'center',
+    },
   });
 
   export default styles

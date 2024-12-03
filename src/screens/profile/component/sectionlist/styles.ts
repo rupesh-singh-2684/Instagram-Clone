@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
       fontSize: 14,
       color: "#555",
     },
+    logoutText: {
+      fontSize: 16,
+      fontWeight: "500",
+      color:'#E34D4D',
+    },
   });
 
   export default styles

@@ -1,17 +1,12 @@
-import { View, Text, Image, Dimensions } from 'react-native'
+import {Image, Dimensions} from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icons } from '../assets';
-import HomeScreen from '../screens/homescreen';
-// import Search, { SearchScreen } from '../screens/search';
 import NewPost from '../screens/post';
-import Reels from '../screens/reels';
-import Profile from '../screens/profile';
 import HomeRoutes from './home.routes';
 import ProfileRoutes from './profile.routes';
 import SearchRoutes from './search.routes';
 import ReelsScreen from '../screens/reels';
-
 
 const Tab = createBottomTabNavigator()
 const Bottomtab = () => {
@@ -94,6 +89,7 @@ const Bottomtab = () => {
                 name="Profile"
                 component={ProfileRoutes}
                 options={{ headerShown: false }}
+            
             />
         </Tab.Navigator>
     )

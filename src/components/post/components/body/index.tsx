@@ -8,9 +8,8 @@ const Body = ({ imageUri, videoUri,onPress }: any) => {
   // const onPress = () => {
   //   console.log('img pressed');
   // }
-
+  
   return (
-    <>
       <TouchableWithoutFeedback onPress={onPress}>
         {/* <Video source={{ uri: videoUri }}
       style={styles.image}
@@ -18,13 +17,6 @@ const Body = ({ imageUri, videoUri,onPress }: any) => {
         <Image source={{ uri: imageUri }}
           style={styles.image} />
       </TouchableWithoutFeedback>
-
-      {/* <TouchableWithoutFeedback onPress={onPress}>
-        <Video source={{ uri: videoUri }}
-          style={styles.image}
-        />
-      </TouchableWithoutFeedback> */}
-    </>
   )
 }
 

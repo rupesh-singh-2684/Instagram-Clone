@@ -1,8 +1,5 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import HomeScreen from '../screens/homescreen';
-import StoryScreen from '../screens/storyScreen';
 import Login from '../screens/login';
 import Signup from '../screens/signUp';
 import SplashScreen from '../screens/splash';
