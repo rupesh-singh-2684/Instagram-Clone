@@ -12,14 +12,12 @@ const styles = StyleSheet.create({
     },
     img:{
         height:'100%',
-        // flex:1,
         justifyContent:'space-between',
         resizeMode:'cover'
     },
     header:{
         flexDirection:'row',
         alignItems:'center',
-        // marginTop:5
     },
     userName:{
         fontWeight:'800',
@@ -32,19 +30,36 @@ const styles = StyleSheet.create({
         marginHorizontal:10
     },
     headerContainer:{
-        flexDirection: 'row', alignItems: 'center', marginTop: 5, justifyContent: 'space-between',
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        marginTop: 5, 
+        justifyContent: 'space-between',
     },
     bottomContainer:{
-        flexDirection: 'row', alignItems: 'center', margin: 10, justifyContent: 'space-between'
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        margin: 10, 
+        justifyContent: 'space-between'
     },
     bottomImg:{
-        height: 25, width: 25, tintColor: 'white'
+        height: 25, 
+        width: 25, 
+        tintColor: 'white'
     },
     input:{
-        borderWidth: 1, borderRadius: 20, fontSize: 16, width: '65%', padding: 10, borderColor: 'white', color: 'white',
+        borderWidth: 1, 
+        borderRadius: 20, 
+        fontSize: 16, 
+        width: '65%', 
+        padding: 10, 
+        borderColor: 'white', 
+        color: 'white',
     },
     crossImg:{
-        height: 20, width: 20, tintColor: 'white', marginHorizontal: 10
+        height: 20,
+        width: 20, 
+        tintColor: 'white',
+        marginHorizontal: 10
     }
 })
 

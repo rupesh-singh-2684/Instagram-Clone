@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        // padding: 10,
     },
     header: {
         flexDirection: 'row',
@@ -12,7 +11,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: 'space-between',
         marginHorizontal:20,
-        // marginTop:60,
         marginBottom:10
     },
     backButton: {
@@ -24,9 +22,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#000',
-        //   alignSelf:'center',
-        //   textAlign:'center',
-        //   backgroundColor:'red'
     },
     profileSection: {
         alignItems: 'center',
@@ -95,7 +90,6 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         marginHorizontal:15,
         marginVertical:10,
-     //    backgroundColor:'green',
      },
      bgColor: {
          flex: 1,
@@ -121,26 +115,18 @@ const styles = StyleSheet.create({
          width:35,
          borderRadius:15,
          marginHorizontal:10
-         // backgroundColor:'red',
      },
      textArrange:{
          justifyContent:'center',
      },
      name:{
          marginEnd:10,
-         // marginStart:25
          fontSize:16,
          fontWeight:'500',
          color:'black',
-         // textAlignVertical:'center',
-         // textAlign:'center',
-         // justifyContent:'center',
-         // alignItems:'center',
-         // backgroundColor:'grey',
      },
      comments:{
          marginEnd:10,
-         // marginStart:25
          fontSize:14,
          fontWeight:'400',
          color:'black',

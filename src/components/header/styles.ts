@@ -22,7 +22,6 @@ const styles = StyleSheet.create ({
     iconsDiv:{
         flexDirection:'row',
         alignItems:'center',
-        // backgroundColor:'red',
         flex:1,
         justifyContent:'flex-end',
     }   

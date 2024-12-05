@@ -10,9 +10,6 @@ export const loginInitialValue = {
    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.username)) {
       errors.username = 'Please enter a valid email address';
     }
-    // else if (!/^[789]\d{9}$/.test(values.username)){
-    //   errors.username = 'Please enter a valid phone number';
-    // }
    if (values.password.length < 6) {
       errors.password = 'Password must be at least 6 characters long';
     }

@@ -108,7 +108,6 @@ const images = [
     ,
   },
   {
-
     imageUri: '/Users/admin/Desktop/InstagramClone/src/assets/images/profile1.jpeg',
     captions: '🌵🌵',
       likeCounts: 178,
@@ -121,8 +120,7 @@ const images = [
               comments: 'amazing',
               time: '9h'
           }
-      }
-      ,
+      },
   }, {
 
     imageUri: '/Users/admin/Desktop/InstagramClone/src/assets/images/profile3.jpeg',

@@ -5,7 +5,6 @@ import Feed from '../../components/feed'
 import styles from './styles'
 
 const HomeScreen = () => {
-  // console.log('====>>>>',route)
   return (
     <View style={styles.container}>
       <Header />

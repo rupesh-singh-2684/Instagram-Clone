@@ -1,8 +1,8 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './styles'
 import { Icons, Images } from '../../assets'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation,} from '@react-navigation/native'
 import images from '../../assets/data/profilePost'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -10,11 +10,8 @@ const Profile = ({route}:any) => {
 
   const navigation:any = useNavigation();
   const [isActiveIndex, setIsActiveIndex] = useState(0)
-  // console.log('jhsdabjhbasdjvbh=>>>>>>>',route)
   const [posts, setPosts] = useState([]);
   const { name, bio, userName, imageUri, newPostImage } = route.params as { name: any, userName: any, bio: any, imageUri: any, newPostImage:any } || { imageUri: Images.profileImage3 }
-  
-  // console.log(route.params,'dghjasgdjgajhdgadjhad');
   
   useEffect(() => {
     fetchPostsFromStorage();
@@ -55,7 +52,6 @@ const Profile = ({route}:any) => {
   }
   const render = () => {
     return posts.map((post, index) => {
-      // console.log(posts,'imageimageimageimage');
       return (
         (
           <TouchableOpacity key={index} style={[styles.renderPost, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }]} onPress={() => navigation.navigate('ProfilePostDetailScreen', { name, bio, userName, imageUri, post })}>

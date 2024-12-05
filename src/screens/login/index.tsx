@@ -6,6 +6,7 @@ import {loginInitialValue, validateLogin} from './utils';
 import {Icons} from '../../assets';
 import styles from './styles';
 import CustomButton from '../../components/customButton';
+import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
@@ -51,13 +52,24 @@ const Login = () => {
     const validationErrors = validateLogin(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Login successful with values:', values);
-      await AsyncStorage.setItem('userToken', 'your_auth_token');
-      setIsLoggedIn(true);
-      navigation.reset({
-        index: 0,
-        routes: [{name: 'Bottom'}],
-      });
+      try {
+        const {username, password} = values;
+        await auth().signInWithEmailAndPassword(username, password);
+        await AsyncStorage.setItem('userToken', 'your_auth_token');
+
+        setIsLoggedIn(true);
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Bottom'}],
+        });
+      } catch (error: any) {
+        console.error('Login error: ', error);
+        if (error.code === 'auth/invalid-email') {
+          setErrors({...errors, username: 'Invalid email address'});
+        }else {
+          setErrors({...errors, general: 'An error occurred. Please try again.'});
+        }
+      }
     } else {
       console.log('Validation failed', validationErrors);
     }
@@ -94,6 +106,7 @@ const Login = () => {
             onPress={handleLogin}
             disabled={!values.username || !values.password}
           />
+          {errors.general && <Text style={styles.errorText}>{errors.general}</Text>}
         </View>
 
         <View style={styles.facebookContainer}>

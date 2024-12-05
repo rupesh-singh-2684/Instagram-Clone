@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native"
-// import colors from "../../theme/color"
 
 const styles = StyleSheet.create ({
     container:{
@@ -7,7 +6,6 @@ const styles = StyleSheet.create ({
        justifyContent:'space-between',
        marginHorizontal:15,
        marginVertical:10,
-    //    backgroundColor:'green',
     },
     bgColor: {
         flex: 1,
@@ -19,7 +17,6 @@ const styles = StyleSheet.create ({
     container1:{
         flexDirection:'row',
         alignItems:'center',
-        // backgroundColor:'red'
     },
     imageStyleView:{
         justifyContent:'center',
@@ -34,26 +31,18 @@ const styles = StyleSheet.create ({
         width:30,
         borderRadius:15,
         marginHorizontal:10
-        // backgroundColor:'red',
     },
     textArrange:{
         justifyContent:'center',
     },
     name:{
         marginEnd:10,
-        // marginStart:25
         fontSize:16,
         fontWeight:'500',
         color:'black',
-        // textAlignVertical:'center',
-        // textAlign:'center',
-        // justifyContent:'center',
-        // alignItems:'center',
-        // backgroundColor:'grey',
     },
     comments:{
         marginEnd:10,
-        // marginStart:25
         fontSize:14,
         fontWeight:'400',
         color:'black',

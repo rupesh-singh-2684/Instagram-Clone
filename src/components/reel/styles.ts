@@ -2,7 +2,8 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: Dimensions.get('window').height, bottom: 80
+        height: Dimensions.get('window').height, 
+        bottom: 80
     },
     container: {
         width: Dimensions.get('window').width,
@@ -10,7 +11,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         justifyContent: 'center',
         alignItems: 'center',
-        //   marginVertical:20
     },
     reelContainer: {
         width: '100%',
@@ -25,11 +25,8 @@ const styles = StyleSheet.create({
     details: {
         position: 'absolute',
         width: '100%',
-        // zIndex: 1,
         bottom: 0,
-        // justifyContent:'flex-end',
         padding: 10,
-        // alignItems:'flex-end'
     },
     userDetails: {
         width: 100,

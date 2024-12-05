@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     },
     comments:{
       fontWeight: '500',
-      // alignSelf:'center',
       marginHorizontal:5
     },
     commentUserImg:{

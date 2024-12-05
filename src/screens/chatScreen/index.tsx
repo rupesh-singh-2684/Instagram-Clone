@@ -1,9 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {Icons} from '../../assets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GiftedChat, InputToolbar, Message} from 'react-native-gifted-chat';
-import RBSheet from 'react-native-raw-bottom-sheet';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import styles from './styles';
 
@@ -11,24 +10,19 @@ const ChatScreen = ({route, navigation}: any) => {
   const user = route.params.users;
   const chatId = route.params.users.id;
   const [messages, setMessages]: any = useState([{}]);
-  const refRBSheet: any = useRef();
   const [inputText, setinputText] = useState('');
   const [imageUri, setImageUri]: any = useState();
 
   const handleTakePhoto = () => {
-    console.log('launch camera');
     launchCamera({mediaType: 'photo', quality: 1}, (response: any) => {
       if (response.assets && response.assets[0]) {
         setImageUri(response.assets[0].uri);
-        // console.log(imageUri, "image uri")
       }
     });
   };
   const openGallery = () => {
-    console.log('gallery');
     launchImageLibrary({mediaType: 'photo', quality: 1}, (response: any) => {
       if (response.assets && response.assets[0]) {
-        // console.log(imageUri, "imageuri")
         setImageUri(response.assets[0].uri);
       }
     });
@@ -100,20 +94,6 @@ const ChatScreen = ({route, navigation}: any) => {
             ]}>
             {currentMessage.text}
           </Text>
-          {currentMessage.reaction && (
-            <View
-              style={[
-                styles.reactionView,
-                {
-                  right: isUserMessage ? 0 : 'auto',
-                  top: isUserMessage ? '100%' : '100%',
-                },
-              ]}>
-              <Text style={{color: isUserMessage ? 'white' : 'black'}}>
-                {currentMessage.reaction}
-              </Text>
-            </View>
-          )}
         </TouchableOpacity>
         <Text
           style={[
@@ -173,10 +153,10 @@ const ChatScreen = ({route, navigation}: any) => {
           <Text style={styles.userName}>{user.user.name}</Text>
         </View>
         <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+          <TouchableOpacity >
             <Image source={Icons.call} style={styles.notificationIcon} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+          <TouchableOpacity >
             <Image source={Icons.videoCall} style={styles.notificationIcon} />
           </TouchableOpacity>
         </View>
@@ -196,30 +176,6 @@ const ChatScreen = ({route, navigation}: any) => {
         renderMessage={renderMessage}
         renderSend={renderSend}
       />
-      <RBSheet
-        ref={refRBSheet}
-        height={250}
-        openDuration={250}
-        closeDuration={250}
-        customStyles={{
-          container: styles.bottomSheetContainer,
-          wrapper: styles.bottomSheetWrapper,
-        }}>
-        <View style={styles.RBContainer}>
-          <TouchableOpacity style={styles.RBContainerItem}>
-            <Image source={Icons.home} style={styles.eyeIcon} />
-            <Text style={styles.RBtext}>View details</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.RBContainerItem}>
-            <Image source={Icons.home} style={styles.pinIcon} />
-            <Text style={styles.RBtext}>Pin Chat</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.RBContainerItem}>
-            <Image source={Icons.home} style={styles.searchIcon} />
-            <Text style={styles.RBtext}>Search Chat</Text>
-          </TouchableOpacity>
-        </View>
-      </RBSheet>
     </SafeAreaView>
   );
 };

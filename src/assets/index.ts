@@ -9,6 +9,7 @@ const Icons = {
     comments:require(`${pathToIcons}/comment.png`),
     share:require(`${pathToIcons}/share.png`),
     bookmark:require(`${pathToIcons}/bookmark.png`),
+    bookmark2:require(`${pathToIcons}/bookmark2.png`),
     threeDots:require(`${pathToIcons}/menu-dots-vertical.png`),
     heart:require(`${pathToIcons}/heart.png`),
     home:require(`${pathToIcons}/home1.png`),

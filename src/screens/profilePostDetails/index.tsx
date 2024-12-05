@@ -4,9 +4,7 @@ import styles from './styles';
 
 const ProfilePostDetailsScreen = ({ route }: any) => {
   const { post } = route.params;
-  // console.log(route);
   const { name, imageUri } = route.params as { name: any, imageUri: any, }
-  // console.log(image,"g>>>>>>>>>>>daj................/");
 
   return (
     <SafeAreaView style={styles.detailsContainer}>
@@ -19,11 +17,6 @@ const ProfilePostDetailsScreen = ({ route }: any) => {
         <Text style={styles.likes}>{post.likeCounts || 0} Likes</Text>
         <Text style={styles.caption}>{post.captions || '#instagram #posts'}</Text>
         <Text style={styles.time}>{post.postedAt || '10sec'}</Text>
-        {/* <View style={styles.userInfo}>
-          <Image source={{ uri: image.comments.user.icon }} style={styles.commentUserImg} />
-          <Text style={styles.userName}>{image.comments.user.name}</Text>
-          <Text style={styles.comments}>{image.comments.user.comments}</Text>
-        </View> */}
       </View>
     </SafeAreaView>
   );

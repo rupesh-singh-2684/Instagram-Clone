@@ -12,9 +12,8 @@ const StoryScreen = () => {
   const [activeStoryIndex, setActiveStoryIndex]: any = useState();
 
   const route: any = useRoute();
-  // console.log(route);
   const userId = route.params.userId;
-  const navigation:any = useNavigation();
+  const navigation: any = useNavigation();
 
   useEffect(() => {
     const userStories = stories.find(storyData => storyData.user.id === userId)
@@ -63,6 +62,7 @@ const StoryScreen = () => {
     return (
       <SafeAreaView style={styles.emptyStory}>
         <ActivityIndicator/>
+        {/* {navigation.navigate("Bottom")} */}
       </SafeAreaView>
     )
   }

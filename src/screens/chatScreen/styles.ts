@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent:'center',
-        // flex:1
     },
     userName: {
         fontSize: 18,
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#888',
         marginBottom: 10,
-        // marginHorizontal:5
     },
     reactionView: {
         marginTop: 5,
@@ -53,13 +51,11 @@ const styles = StyleSheet.create({
     sendButton: {
         padding: 6,
         alignSelf:'center',
-        // backgroundColor:'#F4F4F4'
     },
     sendIcon: {
         width: 25,
         height: 25,
         marginLeft:10
-        // alignSelf:'center'
     },
     RBContainer: {
         padding: 20,
@@ -99,7 +95,6 @@ const styles = StyleSheet.create({
         borderRadius:30,
         marginHorizontal:15,
         borderWidth:0.2,
-        // paddingVertical: 3,
         borderTopColor:'grey',
         bottom:10,
         borderColor:'grey'
@@ -108,20 +103,21 @@ const styles = StyleSheet.create({
     actionButton: {
         marginLeft: 10,
         alignSelf:'center',
-        // backgroundColor:'#F4F4F4'
     },
     actionIcon: {
         width: 45,
         height: 45,
-        // alignSelf:'center',
-        // backgroundColor:'red',
         right:10
     },
     userImg:{
-        height:25,width:25,borderRadius:13
+        height:25,
+        width:25,
+        borderRadius:13
     },
     iconContainer:{
-        flexDirection: 'row' ,alignSelf:'center',marginRight:10
+        flexDirection: 'row' ,
+        alignSelf:'center',
+        marginRight:10
     },
     message:{
         marginHorizontal: 10

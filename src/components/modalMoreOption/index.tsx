@@ -2,11 +2,8 @@ export default styles;
 import {
   View,
   Text,
-  SafeAreaView,
   Image,
-  TouchableOpacity,
-  Dimensions,
-  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import React from 'react';
 import styles from './styles';

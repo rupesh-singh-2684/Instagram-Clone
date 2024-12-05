@@ -3,13 +3,11 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    // alignItems: 'center',
     backgroundColor: 'white',
   },
   subContainer: {
     flex:1,
     marginTop: 20,
-    // backgroundColor:'red'
     marginHorizontal:30
   },
   text: {
@@ -43,8 +41,6 @@ export const styles = StyleSheet.create({
     marginTop:16,
     paddingHorizontal: 10,
     fontSize: 16,
-    // color:'red',
-    // backgroundColor:'yellow',
     alignSelf:'center'
   },
 });

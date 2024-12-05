@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, } from 'react-native'
 import React, { useState } from 'react'
 import { Icons } from '../../assets'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
@@ -11,7 +11,6 @@ const NewPost = () => {
   const [imageUri, setImageUri] = useState('')
 
   const openGallery = () => {
-    // console.log("gallery");
     launchImageLibrary({ mediaType: 'photo', quality: 1 }, async (response: any) => {
       if (response.assets && response.assets[0]) {
         const uri = response.assets[0].uri;
@@ -21,7 +20,6 @@ const NewPost = () => {
     });
   };
   const handleTakePhoto = () => {
-    // console.log('launch camera');
     launchCamera({ mediaType: 'photo', quality: 1 }, async (response: any) => {
       if (response.assets && response.assets[0]) {
         const uri = response.assets[0].uri;
@@ -37,9 +35,7 @@ const NewPost = () => {
       console.error('Failed to save image URI:', error);
     }
   };
-
   const handlePost = () => {
-    // console.log(imageUri ,">>>>>>>>>>.");
     if (imageUri) {
       navigation.navigate('Profile',{screen:'ProfileScreen',params:{newPostImage:imageUri}});
       setImageUri('');

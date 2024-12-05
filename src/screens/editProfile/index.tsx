@@ -15,21 +15,15 @@ const EditProfile = ({ navigation }: any) => {
         navigation.navigate('ProfileScreen', { name, userName, bio, imageUri })
     }
     const openGallery = () => {
-        // console.log("gallery");
         launchImageLibrary({ mediaType: 'photo', quality: 1 }, (response: any) => {
-            // console.log(response,'dsadadasda');
             if (response.assets && response.assets[0]) {
-                // console.log(imageUri, "imageuri")
                 setImageUri(response.assets[0].uri);
             }
         });
     };
     const handleTakePhoto = () => {
-        // console.log('launch camera');
         launchCamera({ mediaType: 'photo', quality: 1 }, (response: any) => {
-            // console.log('launch camera');
             if (response.assets && response.assets[0]) {
-                // console.log(imageUri, "image uri")
                 setImageUri(response.assets[0].uri);
             }
         });
@@ -65,10 +59,10 @@ const EditProfile = ({ navigation }: any) => {
                 </View>
                 <View style={styles.inputGroup}>
                     <Text style={styles.label}>Name</Text>
-                    <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
+                    <TextInput style={styles.input} placeholder="Name" value={name || 'Rupesh_Singh'} onChangeText={setName} />
 
                     <Text style={styles.label}>Username</Text>
-                    <TextInput style={styles.input} placeholder="Username" value={userName} onChangeText={setUserName} />
+                    <TextInput style={styles.input} placeholder="Username" value={userName || 'Rupesh_Singh_'} onChangeText={setUserName}/>
 
                     <Text style={styles.label}>Pronouns</Text>
                     <TextInput style={styles.input} placeholder="Pronouns" />
@@ -78,9 +72,8 @@ const EditProfile = ({ navigation }: any) => {
                         style={[styles.input, styles.bioInput]}
                         placeholder="Bio"
                         multiline
-                        value={bio}
+                        value={bio || 'Jai Shree Ram'}
                         onChangeText={setBio}
-                        defaultValue='...'
                     />
                     <Text style={styles.label}>Links</Text>
                     <TextInput style={styles.input} placeholder="Links" />

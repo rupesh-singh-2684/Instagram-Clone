@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { Icons } from '../../assets';
 
 
 const notifications = [
@@ -11,9 +13,24 @@ const notifications = [
 ];
 
 export default function NotificationsScreen() {
-  // console.log('object',route)
+
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Image
+            source={Icons.back}
+            style={styles.backImg}
+          />
+        </TouchableOpacity>
+        <View style={styles.idContainer}>
+          <Text style={styles.id}>Notifications</Text>
+        </View>
+      </View>
       <FlatList
         data={notifications}
         keyExtractor={(item) => item.id}

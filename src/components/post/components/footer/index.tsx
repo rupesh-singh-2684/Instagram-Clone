@@ -10,12 +10,18 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
 
   const [isLiked, setIsLike] = useState(false);
   const [likeCounts, setLikeCounts] = useState(0);
+  const [isSaved, setIsSaved] = useState(false);
+
   const refRBSheet = useRef<any>();
 
   const onLikePressed = () => {
     setIsLike(!isLiked)
     const counts = isLiked ? -1 : 1;
     setLikeCounts(likeCounts + counts)
+  }
+
+  const onSavePressed = () => {
+    setIsSaved(!isSaved)
   }
 
   useEffect(() => {
@@ -58,12 +64,15 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
               style={styles.love} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onSavePressed}>
           <View style={styles.iconsContainer}>
-            <Image source={Icons.bookmark}
-              style={styles.love}
-            />
-          </View>
+          {isSaved ?
+              <Image source={Icons.bookmark2}
+                style={styles.love} />
+              : <Image source={Icons.bookmark}
+                style={styles.love} />
+            }
+            </View>
         </TouchableOpacity>
       </View>
       <Text style={styles.captions}>{captions}</Text>
@@ -74,7 +83,6 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
         useNativeDriver={false}
         draggable={true}
         height={Dimensions.get('window').height / 1.8}
-        // style={{ overflow: 'hidden' }}
         customStyles={{
           wrapper: {
             backgroundColor: 'rgba(0,0,0,0.5)',

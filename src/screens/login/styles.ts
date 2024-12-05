@@ -121,19 +121,19 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       width: '100%',
       height: 45,
-      // justifyContent:'center',
       borderColor: '#ccc',
       borderRadius: 5,
-      // marginTop:16,
       paddingHorizontal: 10,
       fontSize: 16,
-      // color:'red',
-      // backgroundColor:'yellow',
-      // alignSelf:'center',
     },
     facebook:{
     
-    }
+    },
+    errorText: {
+      color: 'red',
+      fontSize: 12,
+      marginTop: 8,
+    },
 })
 
 export default styles
