@@ -1,17 +1,18 @@
 import 'react-native-gesture-handler'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
-import Bottomtab from './src/router/bottomtabnavigation';
 import Router from './src/router';
-// import { ReanimatedRoot } from 'react-native-reanimated';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 
 const App = () => {
   return (
-    // <ReanimatedRoot>
+    <Provider store={store}>
+
     <NavigationContainer>
       <Router/>
     </NavigationContainer>
-    // </ReanimatedRoot>
+    </Provider>
   )
 }
 

@@ -62,10 +62,10 @@ const StoryScreen = () => {
     return (
       <SafeAreaView style={styles.emptyStory}>
         <ActivityIndicator/>
-        {/* {navigation.navigate("Bottom")} */}
       </SafeAreaView>
     )
   }
+
   const activeStory = userStories.stories[activeStoryIndex];
 
   const handleNav = () =>{

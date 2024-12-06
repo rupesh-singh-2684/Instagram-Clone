@@ -66,8 +66,11 @@ const Login = () => {
         console.error('Login error: ', error);
         if (error.code === 'auth/invalid-email') {
           setErrors({...errors, username: 'Invalid email address'});
-        }else {
-          setErrors({...errors, general: 'An error occurred. Please try again.'});
+        } else {
+          setErrors({
+            ...errors,
+            general: 'An error occurred. Please try again.',
+          });
         }
       }
     } else {
@@ -106,7 +109,9 @@ const Login = () => {
             onPress={handleLogin}
             disabled={!values.username || !values.password}
           />
-          {errors.general && <Text style={styles.errorText}>{errors.general}</Text>}
+          {errors.general && (
+            <Text style={styles.errorText}>{errors.general}</Text>
+          )}
         </View>
 
         <View style={styles.facebookContainer}>
@@ -126,7 +131,7 @@ const Login = () => {
         <View style={styles.signUpContainer}>
           <Text style={styles.newAccountText}>Don't have an account?</Text>
           <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
-            <Text style={styles.signupText}> Sign up</Text>
+            <Text style={styles.signupText}>Sign up</Text>
           </TouchableOpacity>
         </View>
       </View>

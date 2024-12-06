@@ -1,16 +1,26 @@
 import { View, Text, Image, TouchableOpacity, Dimensions, FlatList } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './styles'
 import { Icons } from '../../../../assets'
 import RBSheet from 'react-native-raw-bottom-sheet'
 import data from '../../../../assets/data/post'
 import { MoreOptionScreen } from '../../../modalMoreOption'
+import { useDispatch, useSelector } from 'react-redux'
+import {removeSavedPost,addSavedPost} from '../../../../redux/slice/index'
+import styles from './styles'
 
-const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
+const Footer = ({ likeCounts: likeCountsProps, captions, postedAt,postId }: any) => {
 
   const [isLiked, setIsLike] = useState(false);
   const [likeCounts, setLikeCounts] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
+
+  const dispatch = useDispatch();
+  const savedPostIds = useSelector(state => state.savedPost.savedPostIds);
+
+  useEffect(() => {
+    setLikeCounts(likeCountsProps)
+    setIsSaved(savedPostIds.includes(postId));
+  }, [savedPostIds, postId]);
 
   const refRBSheet = useRef<any>();
 
@@ -21,12 +31,14 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
   }
 
   const onSavePressed = () => {
-    setIsSaved(!isSaved)
-  }
+    setIsSaved((prevIsSaved) => !prevIsSaved);
 
-  useEffect(() => {
-    setLikeCounts(likeCountsProps)
-  }, [])
+    if (savedPostIds.includes(postId)) {
+      dispatch(removeSavedPost(postId));
+    } else {
+      dispatch(addSavedPost(postId));
+    }
+  };
 
   const handleMoreOption = () => {
     refRBSheet.current.open();
@@ -55,7 +67,7 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt }: any) => {
             }
           </TouchableOpacity>
           <Text style={styles.likes}>{likeCounts} Likes</Text>
-          <TouchableOpacity onPress={handleMoreOption}>
+          <TouchableOpacity onPress={() =>handleMoreOption(item.id)}>
             <Image source={Icons.comments}
               style={styles.love} />
           </TouchableOpacity>

@@ -5,6 +5,7 @@ import Profile from '../screens/profile';
 import EditProfile from '../screens/editProfile';
 import SectionMenu from '../screens/profile/component/sectionlist';
 import { ProfilePostDetailsScreen } from '../screens/profilePostDetails';
+import SavedPost from '../screens/savedPost';
 
 const ProfileStack = createNativeStackNavigator();
 
@@ -27,7 +28,11 @@ const ProfileRoutes = () => {
             <ProfileStack.Screen
                 name='ProfilePostDetailScreen'
                 component={ProfilePostDetailsScreen}
-                options={{ headerShown: false }} />        
+                options={{ headerShown: false }} />
+            <ProfileStack.Screen
+                name='SavedPostScreen'
+                component={SavedPost}
+                options={{ headerShown: false }} />           
         </ProfileStack.Navigator>
     )
 }

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  FlatList,
-  TouchableOpacity,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {Image,FlatList,TouchableOpacity,SafeAreaView,ScrollView,} from 'react-native';
 import post from '../../assets/data/post';
 import styles from './styles';
 import InputBox from '../../components/InputBox';
@@ -31,6 +25,7 @@ const SearchScreen = ({navigation}: any) => {
           keyExtractor={item => item.id}
           numColumns={3}
           contentContainerStyle={styles.grid}
+          bounces={false}
         />
       </ScrollView>
     </SafeAreaView>

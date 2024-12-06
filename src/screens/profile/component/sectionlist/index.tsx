@@ -11,7 +11,7 @@ const SectionMenu = () => {
   const sections = [
     {
       title: "Settings",
-      data: ["Account", "Privacy", "Notifications", "Theme"],
+      data: ["Account", "Privacy", "Notifications", "Theme" ,"Saved"],
     },
     {
       title: "Your Activity",
@@ -23,6 +23,10 @@ const SectionMenu = () => {
     },
   ];
 
+  const handleSavedPress = () => {
+    navigation.navigate('SavedPostScreen');
+  };
+
   const handleLogout = async () => {
     await AsyncStorage.removeItem('userToken');
     navigation.reset({
@@ -31,12 +35,21 @@ const SectionMenu = () => {
     });
   };
 
-  const renderItem = ({ item }:any) => (
-    <TouchableOpacity style={styles.item}>
-      <Text style={styles.itemText}>{item}</Text>
-    </TouchableOpacity>
-  );
-
+  const renderItem = ({ item }:any) => {
+    if (item === 'Saved') {
+      return (
+        <TouchableOpacity style={styles.item} onPress={handleSavedPress}>
+          <Text style={styles.itemText}>{item}</Text>
+        </TouchableOpacity>
+      );
+    }
+    return (
+      <TouchableOpacity style={styles.item}>
+        <Text style={styles.itemText}>{item}</Text>
+      </TouchableOpacity>
+    );
+  }
+  
   const renderSectionHeader = ({ section: { title } }:any) => (
     <View style={styles.header}>
       <Text style={styles.headerText}>{title}</Text>
