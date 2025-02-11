@@ -10,10 +10,7 @@ const SavedScreen = () => {
   const savedPostIds = useSelector(state => state.savedPost.savedPostIds);
   const renderItem = ({item}: any) => (
     <TouchableOpacity
-      style={styles.gridItem}
-      onPress={() =>
-        navigation.navigate('PostDetailScreen', {savedPostIds: item})
-      }>
+      style={styles.gridItem}>
       <Image source={{uri: item.imageUri}} style={styles.image} />
     </TouchableOpacity>
   );

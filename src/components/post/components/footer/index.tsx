@@ -67,7 +67,7 @@ const Footer = ({ likeCounts: likeCountsProps, captions, postedAt,postId }: any)
             }
           </TouchableOpacity>
           <Text style={styles.likes}>{likeCounts} Likes</Text>
-          <TouchableOpacity onPress={() =>handleMoreOption(item.id)}>
+          <TouchableOpacity onPress={() =>handleMoreOption(data.id)}>
             <Image source={Icons.comments}
               style={styles.love} />
           </TouchableOpacity>
